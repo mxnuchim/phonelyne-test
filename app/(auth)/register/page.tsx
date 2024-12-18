@@ -40,6 +40,7 @@ const Register = () => {
   });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const query = new URLSearchParams(window.location.search);
     const tokenFromUrl = query.get("token");
     console.log({ tokenFromUrl });

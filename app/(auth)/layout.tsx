@@ -1,3 +1,4 @@
+import Loader from "@/components/shared/Loader";
 import React, { Suspense } from "react";
 
 interface AuthLayoutProps {
@@ -5,7 +6,7 @@ interface AuthLayoutProps {
 }
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
-  return <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>;
+  return <Suspense fallback={<Loader />}>{children}</Suspense>;
 };
 
 export default AuthLayout;

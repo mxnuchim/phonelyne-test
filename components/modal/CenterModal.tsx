@@ -18,6 +18,8 @@ const CenterModal: React.FC<CenterModalProps> = ({
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
     };
+    if (typeof window === "undefined") return;
+
     if (isOpen) window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, [isOpen, onClose]);
