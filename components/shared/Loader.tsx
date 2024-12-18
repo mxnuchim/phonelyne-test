@@ -9,7 +9,7 @@ interface LoaderProps {
 
 const Loader: React.FC<LoaderProps> = ({}) => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+    <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center !z-[9999]">
       <Lottie
         animationData={animations.loader}
         loop
