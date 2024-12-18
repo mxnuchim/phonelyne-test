@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+:root {
+  /* Eina Font Variables */
+  --font-eina: "Eina", sans-serif;
+
+  /* Larken Font Variables */
+  --font-larken: "Larken", sans-serif;
+}
+
+/* Apply Eina as the default sans-serif font */
+body {
+  font-family: var(--font-eina);
+}
+
+/* Example: Apply Larken for headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-larken);
+}
+
+input:-webkit-autofill {
+  background-color: #ffffff00 !important; /* Set your preferred background */
+  color: inherit !important; /* Ensure text color is inherited */
+}
+
+input:-webkit-autofill::first-line {
+  font-size: inherit !important; /* Inherit font size */
+}
