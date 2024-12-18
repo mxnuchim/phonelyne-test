@@ -34,15 +34,15 @@ export function middleware(request: NextRequest) {
 }
 
 // Configure the middleware to run only on protected routes
-const protectedRoutes = [
-  "/dashboard/:path*",
-  "/sims/:path*",
-  "/help/:path*",
-  "/profile/:path*",
-  "/settings/:path*",
-  "/top-up/:path*",
-  "/transactions/:path*",
-];
+
 export const config = {
-  matcher: protectedRoutes,
+  matcher: [
+    "/dashboard/:path*",
+    "/sims/:path*",
+    "/help/:path*",
+    "/profile/:path*",
+    "/settings/:path*",
+    "/top-up/:path*",
+    "/transactions/:path*",
+  ],
 };
