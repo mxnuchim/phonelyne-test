@@ -40,10 +40,11 @@ const Register = () => {
   });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    // if (typeof window === "undefined") return;
 
-    const query = new URLSearchParams(window.location.search);
-    const tokenFromUrl = query.get("token");
+    // const query = new URLSearchParams(window.location.search);
+    // const tokenFromUrl = query.get("token");
+    const tokenFromUrl = "";
     console.log({ tokenFromUrl });
 
     async function verifyToken() {

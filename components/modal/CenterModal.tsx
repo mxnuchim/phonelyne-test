@@ -1,5 +1,5 @@
 // components/CenterModal.tsx
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 
 interface CenterModalProps {
   isOpen: boolean;
@@ -14,16 +14,16 @@ const CenterModal: React.FC<CenterModalProps> = ({
   children,
   className,
 }) => {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  // useEffect(() => {
+  //   if (typeof window === "undefined") return;
 
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-    };
+  //   const handleEscape = (event: KeyboardEvent) => {
+  //     if (event.key === "Escape") onClose();
+  //   };
 
-    if (isOpen) window.addEventListener("keydown", handleEscape);
-    return () => window.removeEventListener("keydown", handleEscape);
-  }, [isOpen, onClose]);
+  //   if (isOpen) window.addEventListener("keydown", handleEscape);
+  //   return () => window.removeEventListener("keydown", handleEscape);
+  // }, [isOpen, onClose]);
 
   return (
     <Suspense>
