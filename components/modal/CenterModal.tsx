@@ -1,5 +1,5 @@
 // components/CenterModal.tsx
-import React, { Suspense } from "react";
+import React from "react";
 
 interface CenterModalProps {
   isOpen: boolean;
@@ -26,7 +26,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
   // }, [isOpen, onClose]);
 
   return (
-    <Suspense>
+    <React.Suspense>
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-300 ${
           isOpen ? "visible opacity-100" : "invisible opacity-0"
@@ -54,7 +54,7 @@ const CenterModal: React.FC<CenterModalProps> = ({
           {children}
         </div>
       </div>
-    </Suspense>
+    </React.Suspense>
   );
 };
 

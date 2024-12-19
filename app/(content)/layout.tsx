@@ -1,6 +1,6 @@
 // components/ContentLayout.tsx
 "use client";
-import React, { Suspense } from "react";
+import React from "react";
 import { Toaster } from "sonner";
 import Sidebar from "@/components/shared/Sidebar";
 import Loader from "@/components/shared/Loader";
@@ -11,13 +11,13 @@ interface ContentLayoutProps {
 
 const ContentLayout: React.FC<ContentLayoutProps> = ({ children }) => {
   return (
-    <Suspense fallback={<Loader />}>
+    <React.Suspense fallback={<Loader />}>
       <div className="flex">
         <Sidebar />
         <main className="flex-grow p-0 lg:p-3 bg-whiteBg">{children}</main>
       </div>
       <Toaster />
-    </Suspense>
+    </React.Suspense>
   );
 };
 

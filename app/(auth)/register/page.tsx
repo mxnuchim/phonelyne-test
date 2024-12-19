@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Container from "@/components/shared/Container";
 import PrimaryButton from "@/components/shared/PrimaryButton";
@@ -162,7 +162,7 @@ const Register = () => {
   };
 
   return (
-    <Suspense>
+    <React.Suspense>
       {loading ? <Loader /> : null}
       <Navbar
         type="auth"
@@ -290,7 +290,7 @@ const Register = () => {
       </Container>
 
       <Footer />
-    </Suspense>
+    </React.Suspense>
   );
 };
 
