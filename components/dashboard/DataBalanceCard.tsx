@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Globe from "../icons/Globe";
-import ProgressBar from "@ramonak/react-progress-bar";
 import { TriangleAlert } from "lucide-react";
 
 const DataBalanceCard = () => {
@@ -19,7 +18,7 @@ const DataBalanceCard = () => {
       </div>
 
       <div className="w-full flex mt-3">
-        <ProgressBar
+        {/* <ProgressBar
           completed={68}
           customLabel=""
           bgColor={"#FA5D00"}
@@ -30,7 +29,7 @@ const DataBalanceCard = () => {
           barContainerClassName={""}
           completedClassName={""}
           labelClassName={""}
-        />
+        /> */}
       </div>
       <div className="w-full flex items-center justify-center space-x-2 mt-3">
         <TriangleAlert size={14} className="text-red-600" />
