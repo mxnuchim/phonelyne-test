@@ -3,12 +3,12 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { appConfig } from "./config/config";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const cookiesStore = cookies();
   const { authTokenKey } = appConfig;
 
-  const authToken = cookiesStore.get(authTokenKey)?.value;
+  const authToken = (await cookiesStore).get(authTokenKey)?.value;
   const isAuthenticated = Boolean(authToken);
 
   const unprotectedRoutes = ["/", "/login"];
