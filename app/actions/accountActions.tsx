@@ -4,12 +4,12 @@ import { appConfig } from "@/config/config";
 import { IResponse } from "@/types";
 import axios, { AxiosError } from "axios";
 import { cookies } from "next/headers";
-const cookiesStore = cookies();
 
 const { BASE_URL, authTokenKey } = appConfig;
 
 export const getEsimsAction = async (): Promise<IResponse> => {
-  const authToken = cookiesStore.get(authTokenKey)?.value;
+  const cookiesStore = cookies();
+  const authToken = (await cookiesStore).get(authTokenKey)?.value;
 
   try {
     const url = `${BASE_URL}/esim`;
@@ -47,7 +47,8 @@ export const getEsimsAction = async (): Promise<IResponse> => {
 export const getProviderCapabilitiesAction = async (
   provider: string
 ): Promise<IResponse> => {
-  const authToken = cookiesStore.get(authTokenKey)?.value;
+  const cookiesStore = cookies();
+  const authToken = (await cookiesStore).get(authTokenKey)?.value;
 
   try {
     const url = `${BASE_URL}/capability?provider=${provider || "bics"}`;
@@ -71,8 +72,8 @@ export const getProviderCapabilitiesAction = async (
 };
 
 export const getTransactionHistoryAction = async (): Promise<IResponse> => {
-  const authToken = cookiesStore.get(authTokenKey)?.value;
-
+  const cookiesStore = cookies();
+  const authToken = (await cookiesStore).get(authTokenKey)?.value;
   try {
     const url = `${BASE_URL}/transaction`;
 
@@ -97,8 +98,8 @@ export const getTransactionHistoryAction = async (): Promise<IResponse> => {
 export const getSubscriptionPlanAction = async (
   simId?: string
 ): Promise<IResponse> => {
-  const authToken = cookiesStore.get(authTokenKey)?.value;
-
+  const cookiesStore = cookies();
+  const authToken = (await cookiesStore).get(authTokenKey)?.value;
   try {
     const url = new URL(`${BASE_URL}/subscription`);
 

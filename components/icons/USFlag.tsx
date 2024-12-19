@@ -4,7 +4,7 @@ const USFlag = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      enable-background="new 0 0 34 34"
+      enableBackground="new 0 0 34 34"
       viewBox="0 0 34 34"
       id="american-circle-flag"
     >

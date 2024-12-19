@@ -4,10 +4,8 @@ import { appConfig } from "@/config/config";
 import { CreateUserParams, IResponse, LoginUserParams } from "@/types";
 import axios, { AxiosError } from "axios";
 import { cookies } from "next/headers";
-const cookiesStore = cookies();
 
 const { BASE_URL, authTokenKey } = appConfig;
-// const authToken = cookiesStore.get(authTokenKey)?.value;
 
 export const verifyLink = async (token: string): Promise<IResponse> => {
   try {
@@ -48,8 +46,8 @@ export const createUser = async (
 
     console.log(response.data);
 
-    // Setting token cookie
-    cookiesStore.set(authTokenKey, response?.data?.accessToken, {
+    const cookiesStore = cookies();
+    (await cookiesStore).set(authTokenKey, response?.data?.accessToken, {
       httpOnly: true,
       secure: true,
       expires: new Date("Fri, 31 Dec 9999 23:59:59 GMT"),
@@ -88,8 +86,8 @@ export const loginUser = async (
     const response = await axios.post(url, params, {});
 
     console.log("Setting cookie to --> ", response?.data?.accessToken);
-
-    cookiesStore.set(authTokenKey, response?.data?.accessToken, {
+    const cookiesStore = cookies();
+    (await cookiesStore).set(authTokenKey, response?.data?.accessToken, {
       httpOnly: true,
       secure: true,
       expires: new Date("Fri, 31 Dec 9999 23:59:59 GMT"),
